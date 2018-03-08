@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PlurkDiscordBOT.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CedCmnAe3Hgd</Value>
+    </Setting>
+    <Setting Name="Appsecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ViSMeTQHofMeOj12iDhA0s73NhJeCGMn</Value>
+    </Setting>
+    <Setting Name="TokenContent" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TokenSecret" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
