@@ -1,2 +1,3 @@
 # PlurkDiscordBOT
 Test Plurk API in Discord
+# 測試中...
