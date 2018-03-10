@@ -48,23 +48,27 @@
             this.button3 = new System.Windows.Forms.Button();
             this.初始設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button4 = new System.Windows.Forms.Button();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.儲存當前設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.讀取設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(527, 348);
+            this.textBox2.Location = new System.Drawing.Point(786, 348);
             this.textBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(267, 119);
+            this.textBox2.Size = new System.Drawing.Size(50, 49);
             this.textBox2.TabIndex = 3;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(1012, 348);
+            this.textBox3.Location = new System.Drawing.Point(835, 348);
             this.textBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -146,6 +150,9 @@
             // 檔案ToolStripMenuItem
             // 
             this.檔案ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.讀取設定ToolStripMenuItem,
+            this.儲存當前設定ToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.重新授權PlurkToolStripMenuItem,
             this.授權PlurkToolStripMenuItem,
             this.toolStripMenuItem1,
@@ -225,11 +232,41 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // 儲存當前設定ToolStripMenuItem
+            // 
+            this.儲存當前設定ToolStripMenuItem.Name = "儲存當前設定ToolStripMenuItem";
+            this.儲存當前設定ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.儲存當前設定ToolStripMenuItem.Text = "儲存當前設定";
+            this.儲存當前設定ToolStripMenuItem.Click += new System.EventHandler(this.儲存當前設定ToolStripMenuItem_Click);
+            // 
+            // 讀取設定ToolStripMenuItem
+            // 
+            this.讀取設定ToolStripMenuItem.Name = "讀取設定ToolStripMenuItem";
+            this.讀取設定ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.讀取設定ToolStripMenuItem.Text = "讀取設定";
+            this.讀取設定ToolStripMenuItem.Click += new System.EventHandler(this.讀取設定ToolStripMenuItem_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(835, 479);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(108, 44);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "前往原噗";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 535);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
@@ -274,6 +311,10 @@
         private System.Windows.Forms.ToolStripMenuItem 初始設定ToolStripMenuItem;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem 讀取設定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 儲存當前設定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.Button button5;
     }
 }
 

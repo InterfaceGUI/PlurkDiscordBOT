@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="AppKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CedCmnAe3Hgd</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Appsecret" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ViSMeTQHofMeOj12iDhA0s73NhJeCGMn</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TokenContent" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

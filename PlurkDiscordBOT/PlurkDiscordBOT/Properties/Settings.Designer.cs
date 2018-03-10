@@ -25,7 +25,7 @@ namespace PlurkDiscordBOT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("CedCmnAe3Hgd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AppKey {
             get {
                 return ((string)(this["AppKey"]));
@@ -37,7 +37,7 @@ namespace PlurkDiscordBOT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ViSMeTQHofMeOj12iDhA0s73NhJeCGMn")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Appsecret {
             get {
                 return ((string)(this["Appsecret"]));

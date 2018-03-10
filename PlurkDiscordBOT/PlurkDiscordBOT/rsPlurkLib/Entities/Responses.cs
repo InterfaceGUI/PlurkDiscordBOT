@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Newtonsoft.Json;
 namespace RenRen.Plurk.Entities
 {
     public class GetPlurkResponse
@@ -14,7 +14,8 @@ namespace RenRen.Plurk.Entities
     public class GetPlurksResponse
     {
         public Plurk[] plurks { get; set; }
-        public Dictionary<int, User> plurk_users { get; set; }
+       
+        public Dictionary<int, Value> plurk_users { get; set; }
         
     }
 

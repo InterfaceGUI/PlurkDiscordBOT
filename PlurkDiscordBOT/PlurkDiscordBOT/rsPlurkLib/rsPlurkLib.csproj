@@ -37,6 +37,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Value.cs" />
     <Compile Include="Entities\Plurk.cs" />
     <Compile Include="Entities\Responses.cs" />
     <Compile Include="Entities\User.cs" />

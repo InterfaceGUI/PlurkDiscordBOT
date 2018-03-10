@@ -5,11 +5,10 @@ using System.Text;
 namespace RenRen.Plurk.Entities
 {
     /// <summary>
-    /// Contains information of a Plurk user.
+    /// Contains information of a Plurk user Value.
     /// </summary>
-    public class User
+    public class Value
     {
-        public Value Value { get; set; }
         public int id { get; set; }
         public string nick_name { get; set; }
         public string display_name { get; set; }
@@ -26,7 +25,4 @@ namespace RenRen.Plurk.Entities
         public int recruited { get; set; }
         public string relationship { get; set; }
     }
-    
-
-
 }
