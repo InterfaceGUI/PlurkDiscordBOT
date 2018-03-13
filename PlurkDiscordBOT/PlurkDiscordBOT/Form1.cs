@@ -7,27 +7,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using RenRen.Plurk;
+using Discord.Commands;
+using Discord.WebSocket;
+using Discord;
+using System.Web.Services.Description;
+using System.Reflection;
+
 namespace PlurkDiscordBOT
 {
     public partial class Form1 : Form
     {
+        private DiscordSocketClient _client;
+        private CommandService _commands;
+        private IServiceProvider _services;
+
+
         PlurkHelper helper = new PlurkHelper();
+        string botToken = Properties.Settings.Default.BotToken;
+        public async Task RunBotAsnyc()
+        {
+            _client = new DiscordSocketClient();
+            _commands = new CommandService();
+        }
+        public async Task RegisterCommandAsync()
+        {
+            _client.MessageReceived += HandleCommandAsync;
+            await _commands.AddModulesAsync(Assembly.GetEntryAssembly());
+        }
+
+        private async Task HandleCommandAsync(SocketMessage arg)
+        {
+            var message = arg as SocketUserMessage;
+
+                if (message is null || message.Author.IsBot) return;
+
+            int argpos = 0;
+
+            if(message.HasStringPrefix("p!",ref argpos) || message.HasMentionPrefix(_client.CurrentUser , ref argpos))
+            {
+                var context = new SocketCommandContext(_client, message);
+
+                var result = await _commands.ExecuteAsync(context, argpos);
+
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
 
         }
-        private void Form1_Closing(object sender, EventArgs e)
+        private async void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            Properties.Settings.Default.Save();
+            await _client.LogoutAsync();
+            await _client.StopAsync();
         }
+      
         private void Form1_Load(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            
-
         }
     
         
@@ -84,11 +124,13 @@ namespace PlurkDiscordBOT
         }
         int plurkbase36;
 
+        string PlurkUserPURL;
         string PlurkName;
         string PlurkContent;
-        int PlurkUserID;
         string PlurkQualifier;
-        string PlurkUserPURL;
+        long PlurkID;
+        int PlurkUserID;
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -98,7 +140,7 @@ namespace PlurkDiscordBOT
             PlurkQualifier = "" + (entity.plurks[0].qualifier_translated != null ? entity.plurks[0].qualifier_translated : entity.plurks[0].qualifier);
             PlurkName = entity.plurk_users.First().Value.display_name;
             PlurkUserID = entity.plurk_users.First().Key;
-
+            PlurkID = entity.plurks[0].plurk_id;
             PlurkUserPURL = helper.getPublicProfile(PlurkUserID).user_info.avatar_big;
 
 
@@ -142,6 +184,59 @@ namespace PlurkDiscordBOT
         private void button5_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(PlurkURL);
+        }
+        DiscordSocketClient client;
+        bool B6 = false;
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            B6 = B6 != true ? true : false;
+            if (B6)
+            {
+                try
+                {
+                    timer1.Enabled = true;
+                    button6.Text = "停止BOT";
+                    label3.Text = "已啟動";
+                    string botToken = Properties.Settings.Default.BotToken;
+                    RunBotAsnyc().GetAwaiter().GetResult();
+                    await RegisterCommandAsync();
+                    await _client.LoginAsync(TokenType.Bot, botToken);
+                    await _client.StartAsync();
+                    await Task.Delay(-1);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                timer1.Enabled = false;
+                button6.Text = "啟動BOT";
+                label3.Text = "已停止";
+                await _client.LogoutAsync();
+                await _client.StopAsync();
+
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var entity = helper.getPlurks();
+
+            PlurkContent = "" + entity.plurks[0].content;
+            PlurkQualifier = "" + (entity.plurks[0].qualifier_translated != null ? entity.plurks[0].qualifier_translated : entity.plurks[0].qualifier);
+            PlurkName = entity.plurk_users.First().Value.display_name;
+            PlurkUserID = entity.plurk_users.First().Key;
+            PlurkID = entity.plurks[0].plurk_id;
+            PlurkUserPURL = helper.getPublicProfile(PlurkUserID).user_info.avatar_big;
+            plurkbase36 = (int)entity.plurks[0].plurk_id;
+            string SRC = Base36Converter.ConvertTo(plurkbase36).ToLower();
+            char[] ArraySRC = SRC.ToCharArray();
+            Array.Reverse(ArraySRC);
+            SRC = new string(ArraySRC);
+            PlurkURL = "https://www.plurk.com/p/" + SRC;
+
         }
     }
 }
