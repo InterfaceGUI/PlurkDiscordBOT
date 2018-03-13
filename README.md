@@ -1,3 +1,4 @@
 # PlurkDiscordBOT
-Test Plurk API in Discord
-# 測試中...
+一個Plurk的Discord同步訊息機器人
+# 目前進度 完成70%
+# 使用教學
