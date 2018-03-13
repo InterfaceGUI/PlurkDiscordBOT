@@ -15,8 +15,12 @@ namespace RenRen.Plurk.Entities
     {
         public Plurk[] plurks { get; set; }
        
-        public Dictionary<int, Value> plurk_users { get; set; }
-        
+        public Dictionary<int, User> plurk_users { get; set; }
+
+    }
+    public class GetPublicProfiles
+    {
+        public UserInfo user_info { get; set; }
     }
 
     public class GetResponseResponse

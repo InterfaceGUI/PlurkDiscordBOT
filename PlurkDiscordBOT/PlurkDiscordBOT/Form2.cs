@@ -25,7 +25,7 @@ namespace PlurkDiscordBOT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "")
+            if (textBox1.Text == "" || textBox2.Text == "" )
             {
                 MessageBox.Show("AppKey or Appsecret Can't be empty" , "警告");
                 return;

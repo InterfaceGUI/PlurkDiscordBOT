@@ -21,6 +21,7 @@ namespace RenRen.Plurk
         #endregion
 
         #region "Private Fields"
+
         private OAuthInstance instance;
         #endregion
 
@@ -57,10 +58,19 @@ namespace RenRen.Plurk
         {
             NameValueCollection nvc = new NameValueCollection();
             nvc.Add("limit", "1");
-            nvc.Add("minimal_data", "false");
-            nvc.Add("minimal_user", "false");
+            nvc.Add("minimal_data", "true");
+            nvc.Add("minimal_user", "true");
             string req = instance.SendRequest("Timeline/getPlurks", nvc);
             return CreateEntity<Entities.GetPlurksResponse>(req);
+        }
+        public Entities.GetPublicProfiles getPublicProfile(int userId)
+        {
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("user_id", userId.ToString());
+            nvc.Add("minimal_data", "false");
+            nvc.Add("minimal_user", "false");
+            string req = instance.SendRequest("Profile/getPublicProfile", nvc);
+            return JsonConvert.DeserializeObject<Entities.GetPublicProfiles>(req);
         }
 
         public Entities.GetPlurksResponse GetPublicPlurks(int userId, DateTime offset, 

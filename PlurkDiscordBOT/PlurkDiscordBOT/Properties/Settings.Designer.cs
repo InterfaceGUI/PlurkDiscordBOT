@@ -70,5 +70,41 @@ namespace PlurkDiscordBOT.Properties {
                 this["TokenSecret"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ServerID {
+            get {
+                return ((string)(this["ServerID"]));
+            }
+            set {
+                this["ServerID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ChannelID {
+            get {
+                return ((string)(this["ChannelID"]));
+            }
+            set {
+                this["ChannelID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BotToken {
+            get {
+                return ((string)(this["BotToken"]));
+            }
+            set {
+                this["BotToken"] = value;
+            }
+        }
     }
 }

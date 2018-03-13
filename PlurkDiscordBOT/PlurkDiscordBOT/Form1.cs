@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using RenRen.Plurk;
 namespace PlurkDiscordBOT
 {
@@ -46,6 +47,7 @@ namespace PlurkDiscordBOT
                 helper.Client.Token = new OAuthToken(Properties.Settings.Default.TokenContent, Properties.Settings.Default.TokenSecret, OAuthTokenType.Permanent);
                 System.Diagnostics.Process.Start(helper.Client.GetAuthorizationUrl());
                 panel1.Visible = true;
+                Properties.Settings.Default.Save();
             }
            catch (Exception ex)
             {
@@ -81,12 +83,25 @@ namespace PlurkDiscordBOT
             form2.Show();
         }
         int plurkbase36;
+
+        string PlurkName;
+        string PlurkContent;
+        int PlurkUserID;
+        string PlurkQualifier;
+        string PlurkUserPURL;
+
         private void button4_Click(object sender, EventArgs e)
         {
             var entity = helper.getPlurks();
 
-            textBox3.Text = "" + entity.plurks[0].content_raw;
-            textBox2.Text = "" + (entity.plurks[0].qualifier_translated != null ? entity.plurks[0].qualifier_translated:entity.plurks[0].qualifier);
+            PlurkContent = "" + entity.plurks[0].content;
+            PlurkQualifier = "" + (entity.plurks[0].qualifier_translated != null ? entity.plurks[0].qualifier_translated : entity.plurks[0].qualifier);
+            PlurkName = entity.plurk_users.First().Value.display_name;
+            PlurkUserID = entity.plurk_users.First().Key;
+
+            PlurkUserPURL = helper.getPublicProfile(PlurkUserID).user_info.avatar_big;
+
+
             plurkbase36 = (int)entity.plurks[0].plurk_id;
             string SRC = Base36Converter.ConvertTo(plurkbase36).ToLower();
             char[] ArraySRC = SRC.ToCharArray();
@@ -94,9 +109,10 @@ namespace PlurkDiscordBOT
             SRC = new string(ArraySRC);
             PlurkURL = "https://www.plurk.com/p/" + SRC;
 
- 
-            textBox5.Text = entity.plurk_users[0].display_name;
+            
+            
         }
+        
         public class Introduction
         {
             public string display_name { get; set; }
@@ -119,30 +135,13 @@ namespace PlurkDiscordBOT
                 return result;
             }
         }
-        private void 讀取設定ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+        
 
 
-            helper.Client.SetApp(Properties.Settings.Default.AppKey, Properties.Settings.Default.Appsecret);
-            MessageBox.Show(Properties.Settings.Default.TokenContent + "\r\n"+ Properties.Settings.Default.TokenSecret);
-            helper.Client.Token = new OAuthToken(Properties.Settings.Default.TokenContent, Properties.Settings.Default.TokenSecret, OAuthTokenType.Permanent);
-        }
-
-        private void 儲存當前設定ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-           // Properties.Settings.Default.Upgrade();
-            Properties.Settings.Default.Save();
-        }
         string PlurkURL;
         private void button5_Click(object sender, EventArgs e)
         {
-
             System.Diagnostics.Process.Start(PlurkURL);
-
-
-
         }
     }
 }
