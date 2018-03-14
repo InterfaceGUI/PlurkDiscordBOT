@@ -277,7 +277,7 @@ namespace PlurkDiscordBOT
             }
             else
             {
-                Url = "";
+                Url ="";
             }
 
             if (PlurkUserPURL != PUPURL)
