@@ -1,4 +1,6 @@
 # PlurkDiscordBOT
 一個Plurk的Discord同步訊息機器人
-# 目前進度 完成70%
+# V1.0版本釋出
+下載:https://github.com/InterfaceGUI/PlurkDiscordBOT/releases
 # 使用教學
+待補
