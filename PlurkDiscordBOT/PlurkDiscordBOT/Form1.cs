@@ -275,12 +275,17 @@ namespace PlurkDiscordBOT
                 string strtemp = PlurkContent.Remove(0, temp);
                 Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
             }
+            else
+            {
+                Url = "";
+            }
 
             if (PlurkUserPURL != PUPURL)
             {
                 PUPURL= PlurkUserPURL ;
               await  SendMessage();
             }
+            
 
 
 
