@@ -13,6 +13,24 @@ namespace PlurkDiscordBOT.Command
         [Command("help")]
         public async Task helpAsync()
         {
+            List<EmbedFieldBuilder> Fields = new List<EmbedFieldBuilder>();
+            Fields.Add(new EmbedFieldBuilder {
+                IsInline = false,
+                Name = "help",
+                Value = "取得幫助"
+            });
+            Fields.Add(new EmbedFieldBuilder
+            {
+                IsInline = false,
+                Name = "p!sfollow [URL]",
+                Value = "關注 URL 請放入 用戶主頁的網址"  + "看起來如下" + "\n" + "p!sfollow https://www.plurk.com/Interfac_GUI"
+            });
+            Fields.Add(new EmbedFieldBuilder
+            {
+                IsInline = false,
+                Name = "p!sfollow [URL]",
+                Value = "取消關注同關注用法"
+            });
             var builder = new EmbedBuilder() {
                 Title = " PlurkDiscordBOT",
                 Author = new EmbedAuthorBuilder
@@ -28,6 +46,7 @@ namespace PlurkDiscordBOT.Command
                 },
                 Color = Color.Orange,
                 Description = "相關命令列表",
+                Fields = Fields,
                 Timestamp = DateTime.UtcNow,
                 Url = "https://github.com/InterfaceGUI"
             

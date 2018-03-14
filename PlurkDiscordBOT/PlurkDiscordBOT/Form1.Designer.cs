@@ -39,7 +39,6 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.關閉程式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.選項ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.檢視授權碼ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.初始設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.說明ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +112,7 @@
             this.說明ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(441, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(433, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -128,33 +128,26 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(119, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // 關閉程式ToolStripMenuItem
             // 
             this.關閉程式ToolStripMenuItem.Name = "關閉程式ToolStripMenuItem";
-            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.關閉程式ToolStripMenuItem.Text = "關閉程式";
             // 
             // 選項ToolStripMenuItem
             // 
             this.選項ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.檢視授權碼ToolStripMenuItem,
             this.初始設定ToolStripMenuItem});
             this.選項ToolStripMenuItem.Name = "選項ToolStripMenuItem";
             this.選項ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.選項ToolStripMenuItem.Text = "選項";
             // 
-            // 檢視授權碼ToolStripMenuItem
-            // 
-            this.檢視授權碼ToolStripMenuItem.Name = "檢視授權碼ToolStripMenuItem";
-            this.檢視授權碼ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.檢視授權碼ToolStripMenuItem.Text = "檢視授權碼";
-            // 
             // 初始設定ToolStripMenuItem
             // 
             this.初始設定ToolStripMenuItem.Name = "初始設定ToolStripMenuItem";
-            this.初始設定ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.初始設定ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.初始設定ToolStripMenuItem.Text = "初始設定";
             this.初始設定ToolStripMenuItem.Click += new System.EventHandler(this.初始設定ToolStripMenuItem_Click);
             // 
@@ -176,7 +169,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 255);
+            this.button4.Location = new System.Drawing.Point(224, 115);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(201, 73);
             this.button4.TabIndex = 9;
@@ -186,7 +179,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 334);
+            this.button5.Location = new System.Drawing.Point(224, 194);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(201, 44);
             this.button5.TabIndex = 10;
@@ -231,17 +224,27 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(296, 231);
+            this.textBox1.Location = new System.Drawing.Point(256, 315);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 30);
             this.textBox1.TabIndex = 13;
             this.textBox1.Text = "\"";
+            this.textBox1.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(13, 207);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(205, 28);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "每次關閉後必須重新授權";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 395);
+            this.ClientSize = new System.Drawing.Size(433, 243);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -278,7 +281,6 @@
         private System.Windows.Forms.ToolStripMenuItem 檔案ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 關閉程式ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 選項ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 檢視授權碼ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 說明ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 初始設定ToolStripMenuItem;
         private System.Windows.Forms.Button button3;
@@ -290,6 +292,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -269,6 +269,12 @@ namespace PlurkDiscordBOT
             SRC = new string(ArraySRC);
             PlurkURL = "https://www.plurk.com/p/" + SRC;
 
+            if (PlurkContent.Contains("<img src="))
+            {
+                int temp = PlurkContent.IndexOf("<img src=") + 10;
+                string strtemp = PlurkContent.Remove(0, temp);
+                Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
+            }
 
             if (PlurkUserPURL != PUPURL)
             {
