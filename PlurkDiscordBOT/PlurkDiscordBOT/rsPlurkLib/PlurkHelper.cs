@@ -146,9 +146,18 @@ namespace RenRen.Plurk
         #endregion
 
         #region "FriendsFans/"
+        public Entities.SetFollowing SetFollowing(string User_id, string follow)
+        {
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("user_id", User_id);
+            nvc.Add("follow", follow);
+            string req = instance.SendRequest("FriendsFans/setFollowing", nvc);
+            return CreateEntity<Entities.SetFollowing>(req);
+        }
 
         public IEnumerator<Entities.User> EnumerateFriends(int userId)
         {
+
             int offset = 0;
             do
             {
@@ -169,6 +178,19 @@ namespace RenRen.Plurk
                     yield return u;
 
             } while (offset > 0);
+        }
+
+        #endregion
+        #region "UserSearch/"
+
+        public Entities.GetUsers UserSearch(string UserName)
+        {
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("query", UserName);
+            nvc.Add("offset", "0");
+            nvc.Add("type" ,"general");
+            string req = instance.SendRequest("UserSearch/search", nvc);
+            return CreateEntity<Entities.GetUsers>(req);
         }
 
         #endregion

@@ -49,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -127,12 +128,12 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(119, 6);
             // 
             // 關閉程式ToolStripMenuItem
             // 
             this.關閉程式ToolStripMenuItem.Name = "關閉程式ToolStripMenuItem";
-            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.關閉程式ToolStripMenuItem.Text = "關閉程式";
             // 
             // 選項ToolStripMenuItem
@@ -147,13 +148,13 @@
             // 檢視授權碼ToolStripMenuItem
             // 
             this.檢視授權碼ToolStripMenuItem.Name = "檢視授權碼ToolStripMenuItem";
-            this.檢視授權碼ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.檢視授權碼ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.檢視授權碼ToolStripMenuItem.Text = "檢視授權碼";
             // 
             // 初始設定ToolStripMenuItem
             // 
             this.初始設定ToolStripMenuItem.Name = "初始設定ToolStripMenuItem";
-            this.初始設定ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.初始設定ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.初始設定ToolStripMenuItem.Text = "初始設定";
             this.初始設定ToolStripMenuItem.Click += new System.EventHandler(this.初始設定ToolStripMenuItem_Click);
             // 
@@ -225,14 +226,23 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 60000;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(296, 231);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 30);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.Text = "\"";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 395);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button6);
@@ -279,6 +289,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -18,7 +18,7 @@ namespace PlurkDiscordBOT
 {
     public partial class Form1 : Form
     {
-        private DiscordSocketClient _client;
+        static DiscordSocketClient _client;
         private CommandService _commands;
         private IServiceProvider _services;
 
@@ -40,7 +40,7 @@ namespace PlurkDiscordBOT
         {
             var message = arg as SocketUserMessage;
 
-                if (message is null || message.Author.IsBot) return;
+            if (message is null || message.Author.IsBot) return;
 
             int argpos = 0;
 
@@ -49,7 +49,23 @@ namespace PlurkDiscordBOT
                 var context = new SocketCommandContext(_client, message);
 
                 var result = await _commands.ExecuteAsync(context, argpos);
-
+                if (message.Content.StartsWith("p!sfollow"))
+                {
+                    
+                  string temp =  message.Content.Remove(0, 9);
+                    temp = temp.Remove(0,23);
+                    await message.Channel.SendMessageAsync("搜尋用戶 [" + temp + "]");
+                    await message.Channel.SendMessageAsync(helper.SetFollowing(helper.UserSearch(temp).users[0].id.ToString(), "true").success_text);
+                }
+                else if (message.Content.StartsWith("p!rfollow"))
+                {
+                    string temp = message.Content.Remove(0, 9);
+                    temp = temp.Remove(0, 23);
+                    await message.Channel.SendMessageAsync("搜尋用戶 [" + temp + "]");
+                    string setID = helper.UserSearch(temp).users[0].id.ToString();
+                    await message.Channel.SendMessageAsync(helper.SetFollowing(setID,"true").success_text);
+                    await message.Channel.SendMessageAsync(helper.SetFollowing(helper.UserSearch(temp).users[0].id.ToString(), "false").error_text);
+                }
             }
         }
 
@@ -124,24 +140,41 @@ namespace PlurkDiscordBOT
         }
         int plurkbase36;
 
-        string PlurkUserPURL;
-        string PlurkName;
-        string PlurkContent;
-        string PlurkQualifier;
-        long PlurkID;
-        int PlurkUserID;
+        public static string PlurkUserPURL;
+        public static string PlurkName;
+        public static string PlurkContent;
+        public static string PlurkQualifier;
+        public static string PlurkContent_raw;
+        public static string PlurkURL;
+        public static long PlurkID;
+        public static int PlurkUserID;
         
 
+        public static string Url;
+        
         private void button4_Click(object sender, EventArgs e)
         {
             var entity = helper.getPlurks();
-
+            PlurkContent_raw = "" + entity.plurks[0].content_raw;
             PlurkContent = "" + entity.plurks[0].content;
             PlurkQualifier = "" + (entity.plurks[0].qualifier_translated != null ? entity.plurks[0].qualifier_translated : entity.plurks[0].qualifier);
             PlurkName = entity.plurk_users.First().Value.display_name;
             PlurkUserID = entity.plurk_users.First().Key;
             PlurkID = entity.plurks[0].plurk_id;
             PlurkUserPURL = helper.getPublicProfile(PlurkUserID).user_info.avatar_big;
+
+            if (PlurkContent.Contains("<img src="))
+            {
+                int temp = PlurkContent.IndexOf("<img src=") + 10;
+                string strtemp = PlurkContent.Remove(0, temp);
+                Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
+            }
+            else
+            {
+                Url = "";
+            }
+        
+
 
 
             plurkbase36 = (int)entity.plurks[0].plurk_id;
@@ -151,8 +184,8 @@ namespace PlurkDiscordBOT
             SRC = new string(ArraySRC);
             PlurkURL = "https://www.plurk.com/p/" + SRC;
 
-            
-            
+            PUPURL = PlurkUserPURL;
+
         }
         
         public class Introduction
@@ -177,10 +210,8 @@ namespace PlurkDiscordBOT
                 return result;
             }
         }
+
         
-
-
-        string PlurkURL;
         private void button5_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(PlurkURL);
@@ -219,13 +250,14 @@ namespace PlurkDiscordBOT
 
             }
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        string PUPURL;
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             var entity = helper.getPlurks();
 
             PlurkContent = "" + entity.plurks[0].content;
             PlurkQualifier = "" + (entity.plurks[0].qualifier_translated != null ? entity.plurks[0].qualifier_translated : entity.plurks[0].qualifier);
+            PlurkContent_raw = "" + entity.plurks[0].content_raw;
             PlurkName = entity.plurk_users.First().Value.display_name;
             PlurkUserID = entity.plurk_users.First().Key;
             PlurkID = entity.plurks[0].plurk_id;
@@ -237,6 +269,49 @@ namespace PlurkDiscordBOT
             SRC = new string(ArraySRC);
             PlurkURL = "https://www.plurk.com/p/" + SRC;
 
+
+            if (PlurkUserPURL != PUPURL)
+            {
+                PUPURL= PlurkUserPURL ;
+              await  SendMessage();
+            }
+
+
+
         }
+        public async Task SendMessage()
+        {
+            var builder = new EmbedBuilder()
+            {
+                Title = Form1.PlurkQualifier,
+                Author = new EmbedAuthorBuilder
+                {
+                    IconUrl = Form1.PlurkUserPURL,
+                    Name = Form1.PlurkName,
+                    Url = Form1.PlurkURL
+                },
+                Footer = new EmbedFooterBuilder()
+                {
+                    Text = "BOT made by Interface_GUI",
+                    IconUrl = "https://images-ext-1.discordapp.net/external/ntiOqZA45m-A1b-He-DuE5nREM_4pcPflu05Kvucgak/%3Fsize%3D128/https/cdn.discordapp.com/avatars/226226332944564224/479324dce3872b1c0aad2031159a5c80.png?width=89&height=89"
+                },
+                ImageUrl = Form1.Url,
+                Color = Discord.Color.Orange,
+                Description = Form1.PlurkContent_raw,
+                Timestamp = DateTime.UtcNow
+
+            };
+            try
+            {
+                await _client.GetGuild(Properties.Settings.Default.ServerID).GetTextChannel(Properties.Settings.Default.ChannelID).SendMessageAsync("", false, builder);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("error" + " : " + e.Message);
+            }
+
+
+        }
+
     }
 }

@@ -21,8 +21,8 @@ namespace PlurkDiscordBOT
         {
             textBox1.Text = Properties.Settings.Default.AppKey;
             textBox2.Text = Properties.Settings.Default.Appsecret;
-            textBox3.Text = Properties.Settings.Default.ServerID;
-            textBox4.Text = Properties.Settings.Default.ChannelID;
+            textBox3.Text = Properties.Settings.Default.ServerID.ToString();
+            textBox4.Text = Properties.Settings.Default.ChannelID.ToString();
             textBox5.Text = Properties.Settings.Default.BotToken;
 
         }
@@ -36,8 +36,8 @@ namespace PlurkDiscordBOT
             }
             Properties.Settings.Default.AppKey = textBox1.Text;
             Properties.Settings.Default.Appsecret = textBox2.Text;
-            Properties.Settings.Default.ServerID = textBox3.Text;
-            Properties.Settings.Default.ChannelID = textBox4.Text;
+            Properties.Settings.Default.ServerID = Convert.ToUInt64(textBox3.Text);
+            Properties.Settings.Default.ChannelID = Convert.ToUInt64(textBox4.Text);
             Properties.Settings.Default.BotToken = textBox5.Text;
             this.Dispose();
             Properties.Settings.Default.Save();

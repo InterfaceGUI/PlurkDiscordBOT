@@ -14,11 +14,11 @@
     <Setting Name="TokenSecret" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ServerID" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ServerID" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="ChannelID" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ChannelID" Type="System.UInt64" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="BotToken" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

@@ -4,13 +4,21 @@ using System.Text;
 using Newtonsoft.Json;
 namespace RenRen.Plurk.Entities
 {
+    public class SetFollowing
+    {
+        public string success_text { get; set; }
+        public string error_text { get; set; }
+    }
     public class GetPlurkResponse
     {
         public Plurk plurk { get; set; }
         public User user { get; set; }
         
     }
-
+    public class GetUsers
+    {
+        public User[] users { get; set; }
+    }
     public class GetPlurksResponse
     {
         public Plurk[] plurks { get; set; }

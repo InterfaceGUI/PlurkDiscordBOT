@@ -8,6 +8,7 @@ namespace RenRen.Plurk.Entities
     {
         public string avatar_big { get; set; }
         public bool verified_account { get; set; }
+        public string name_color { get; set; }
     }
 
 }

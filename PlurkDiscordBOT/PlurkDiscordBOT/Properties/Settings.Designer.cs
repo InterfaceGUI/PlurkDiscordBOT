@@ -73,10 +73,10 @@ namespace PlurkDiscordBOT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ServerID {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ulong ServerID {
             get {
-                return ((string)(this["ServerID"]));
+                return ((ulong)(this["ServerID"]));
             }
             set {
                 this["ServerID"] = value;
@@ -85,10 +85,10 @@ namespace PlurkDiscordBOT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ChannelID {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ulong ChannelID {
             get {
-                return ((string)(this["ChannelID"]));
+                return ((ulong)(this["ChannelID"]));
             }
             set {
                 this["ChannelID"] = value;
