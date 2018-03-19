@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace PlurkDiscordBOT.Command
 {
-     public class help : ModuleBase<SocketCommandContext>
+    public class help : ModuleBase<SocketCommandContext>
     {
+        [Command("ping")]
+        public async Task PingAsync()
+        {
+            await ReplyAsync("Ping!!");
+        }
         [Command("help")]
         public async Task helpAsync()
         {
