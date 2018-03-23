@@ -34,13 +34,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.檔案ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.關閉程式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.選項ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.初始設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.說明ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -51,7 +44,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox4
@@ -64,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 81);
+            this.button1.Location = new System.Drawing.Point(8, 52);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 36);
@@ -89,7 +81,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 122);
+            this.panel1.Location = new System.Drawing.Point(8, 93);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(206, 77);
             this.panel1.TabIndex = 6;
@@ -104,62 +96,9 @@
             this.label1.Text = "驗證碼:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.檔案ToolStripMenuItem,
-            this.選項ToolStripMenuItem,
-            this.說明ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(433, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 檔案ToolStripMenuItem
-            // 
-            this.檔案ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.關閉程式ToolStripMenuItem});
-            this.檔案ToolStripMenuItem.Name = "檔案ToolStripMenuItem";
-            this.檔案ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.檔案ToolStripMenuItem.Text = "檔案";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
-            // 
-            // 關閉程式ToolStripMenuItem
-            // 
-            this.關閉程式ToolStripMenuItem.Name = "關閉程式ToolStripMenuItem";
-            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.關閉程式ToolStripMenuItem.Text = "關閉程式";
-            // 
-            // 選項ToolStripMenuItem
-            // 
-            this.選項ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.初始設定ToolStripMenuItem});
-            this.選項ToolStripMenuItem.Name = "選項ToolStripMenuItem";
-            this.選項ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.選項ToolStripMenuItem.Text = "選項";
-            // 
-            // 初始設定ToolStripMenuItem
-            // 
-            this.初始設定ToolStripMenuItem.Name = "初始設定ToolStripMenuItem";
-            this.初始設定ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.初始設定ToolStripMenuItem.Text = "初始設定";
-            this.初始設定ToolStripMenuItem.Click += new System.EventHandler(this.初始設定ToolStripMenuItem_Click);
-            // 
-            // 說明ToolStripMenuItem
-            // 
-            this.說明ToolStripMenuItem.Name = "說明ToolStripMenuItem";
-            this.說明ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.說明ToolStripMenuItem.Text = "說明";
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 35);
+            this.button3.Location = new System.Drawing.Point(8, 6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 38);
             this.button3.TabIndex = 8;
@@ -169,7 +108,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(224, 115);
+            this.button4.Location = new System.Drawing.Point(220, 86);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(201, 73);
             this.button4.TabIndex = 9;
@@ -179,7 +118,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(224, 194);
+            this.button5.Location = new System.Drawing.Point(220, 165);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(201, 44);
             this.button5.TabIndex = 10;
@@ -189,7 +128,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(219, 35);
+            this.button6.Location = new System.Drawing.Point(220, 6);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(201, 38);
             this.button6.TabIndex = 11;
@@ -200,7 +139,7 @@
             // label2
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(219, 76);
+            this.label2.Location = new System.Drawing.Point(220, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 30);
             this.label2.TabIndex = 12;
@@ -210,7 +149,7 @@
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(279, 76);
+            this.label3.Location = new System.Drawing.Point(280, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 30);
             this.label3.TabIndex = 12;
@@ -233,7 +172,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(13, 207);
+            this.label4.Location = new System.Drawing.Point(9, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(205, 28);
             this.label4.TabIndex = 14;
@@ -243,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 243);
+            this.ClientSize = new System.Drawing.Size(427, 213);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -254,9 +193,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("新細明體", 14F);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -264,8 +201,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,15 +212,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 檔案ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 關閉程式ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 選項ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 說明ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 初始設定ToolStripMenuItem;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label2;

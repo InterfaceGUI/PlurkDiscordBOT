@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RenRen.Plurk;
 using Discord.Commands;
 using Discord.WebSocket;
 using Discord;
-using System.Web.Services.Description;
 using System.Reflection;
 
 namespace PlurkDiscordBOT
@@ -133,11 +127,7 @@ namespace PlurkDiscordBOT
             form2.Show();
         }
 
-        private void 初始設定ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2();
-            form2.Show();
-        }
+        
         int plurkbase36;
 
         public static string PlurkUserPURL;
@@ -152,7 +142,7 @@ namespace PlurkDiscordBOT
 
         public static string Url;
         
-        private void button4_Click(object sender, EventArgs e)
+        private async void button4_Click(object sender, EventArgs e)
         {
             var entity = helper.getPlurks();
             PlurkContent_raw = "" + entity.plurks[0].content_raw;
@@ -170,7 +160,7 @@ namespace PlurkDiscordBOT
                 Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
                 if (Url.Contains("https://images.plurk.com"))
                 {
-                    Url.Remove(Url.IndexOf("mx_"), 3);
+                    Url= Url.Remove(Url.IndexOf("mx_"), 3);
                 }
             }
             else
@@ -189,7 +179,7 @@ namespace PlurkDiscordBOT
             PlurkURL = "https://www.plurk.com/p/" + SRC;
 
             PUPURL = PlurkUserPURL;
-
+            await SendMessage();
         }
         
         public class Introduction
@@ -280,7 +270,7 @@ namespace PlurkDiscordBOT
                 Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
                 if (Url.Contains("https://images.plurk.com"))
                 {
-                    Url.Remove(Url.IndexOf("mx_"), 3);
+                   Url =  Url.Remove(Url.IndexOf("mx_"), 3);
                 }
             }
             else
