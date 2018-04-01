@@ -133,14 +133,14 @@
   <data name="button2.Text" xml:space="preserve">
     <value>Verify</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 102</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 31</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>verification code:</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 102</value>
   </data>
   <data name="button3.Text" xml:space="preserve">
     <value>Setting</value>
@@ -185,6 +185,6 @@
     <value>MiddleCenter</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>427, 428</value>
+    <value>427, 201</value>
   </data>
 </root>
