@@ -158,7 +158,7 @@ namespace PlurkDiscordBOT
                 int temp = PlurkContent.IndexOf("<img src=") + 10;
                 string strtemp = PlurkContent.Remove(0, temp);
                 Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
-                if (Url.Contains("https://images.plurk.com"))
+                if (Url.Contains("https://images.plurk.com/mx_"))
                 {
                     Url= Url.Remove(Url.IndexOf("mx_"), 3);
                 }
@@ -268,7 +268,7 @@ namespace PlurkDiscordBOT
                 int temp = PlurkContent.IndexOf("<img src=") + 10;
                 string strtemp = PlurkContent.Remove(0, temp);
                 Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
-                if (Url.Contains("https://images.plurk.com"))
+                if (Url.Contains("https://images.plurk.com/mx_"))
                 {
                    Url =  Url.Remove(Url.IndexOf("mx_"), 3);
                 }
