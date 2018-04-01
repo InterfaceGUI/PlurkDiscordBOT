@@ -48,17 +48,17 @@ namespace PlurkDiscordBOT
                     
                   string temp =  message.Content.Remove(0, 9);
                     temp = temp.Remove(0,23);
-                    await message.Channel.SendMessageAsync("搜尋用戶 [" + temp + "]");
-                    await message.Channel.SendMessageAsync(helper.SetFollowing(helper.UserSearch(temp).users[0].id.ToString(), "true").success_text);
+                    await message.Channel.SendMessageAsync("Search... [" + temp + "]");
+                    await message.Channel.SendMessageAsync(helper.SetFollowing(helper.UserSearch(temp).users[0].id.ToString(), "true").success_text + "! Now follow!");
                 }
                 else if (message.Content.StartsWith("p!rfollow"))
                 {
                     string temp = message.Content.Remove(0, 9);
                     temp = temp.Remove(0, 23);
-                    await message.Channel.SendMessageAsync("搜尋用戶 [" + temp + "]");
+                    await message.Channel.SendMessageAsync("Search... [" + temp + "]");
                     string setID = helper.UserSearch(temp).users[0].id.ToString();
                     await message.Channel.SendMessageAsync(helper.SetFollowing(setID,"true").success_text);
-                    await message.Channel.SendMessageAsync(helper.SetFollowing(helper.UserSearch(temp).users[0].id.ToString(), "false").error_text);
+                    await message.Channel.SendMessageAsync(helper.SetFollowing(helper.UserSearch(temp).users[0].id.ToString(), "false").error_text + " Unfollow");
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace PlurkDiscordBOT
             }
            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"錯誤");
+                MessageBox.Show(ex.Message,"Error");
             }
             
 
@@ -220,8 +220,8 @@ namespace PlurkDiscordBOT
                 try
                 {
                     timer1.Enabled = true;
-                    button6.Text = "停止BOT";
-                    label3.Text = "已啟動";
+                    button6.Text = "Stop BOT";
+                    label3.Text = "Started";
                     string botToken = Properties.Settings.Default.BotToken;
                     RunBotAsnyc().GetAwaiter().GetResult();
                     await RegisterCommandAsync();
@@ -237,8 +237,8 @@ namespace PlurkDiscordBOT
             else
             {
                 timer1.Enabled = false;
-                button6.Text = "啟動BOT";
-                label3.Text = "已停止";
+                button6.Text = "Start BOT";
+                label3.Text = "Stopped";
                 await _client.LogoutAsync();
                 await _client.StopAsync();
 
@@ -321,6 +321,7 @@ namespace PlurkDiscordBOT
 
 
         }
+
 
     }
 }
