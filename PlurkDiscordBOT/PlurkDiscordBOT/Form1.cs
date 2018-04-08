@@ -158,18 +158,39 @@ namespace PlurkDiscordBOT
                 int temp = PlurkContent.IndexOf("<img src=") + 10;
                 string strtemp = PlurkContent.Remove(0, temp);
                 Url = strtemp.Substring(0, strtemp.IndexOf(textBox1.Text));
+                if (PlurkContent.Contains("<a href=" + textBox1.Text + "https://images.plurk.com"))
+                {
+                    int temppng = PlurkContent.IndexOf("<a href=") + 10;
+                    string strtemppng = PlurkContent.Remove(0, temppng);
+                    Url = strtemppng.Substring(0, strtemppng.IndexOf(textBox1.Text));
+                    Url = "h" + Url;
+                }
+                if (Url.StartsWith ("textBox1.Text"))
+                {
+                    Url = Url.Remove(1);
+                }
                 if (Url.Contains("https://images.plurk.com/mx_"))
                 {
                     Url= Url.Remove(Url.IndexOf("mx_"), 3);
                 }
+                if (Url.Contains("b.png"))
+                {
+                    Url = Url.Replace("b.png", ".png");
+                }
+                if (Url.Contains("b.gif"))
+                {
+                    Url = Url.Replace("b.gif", ".gif");
+                }
+                if (Url.Contains("b.jpg"))
+                {
+                    Url = Url.Replace("b.gif", ".gif");
+                }
+
             }
             else
             {
                 Url = "";
             }
-        
-
-
 
             plurkbase36 = (int)entity.plurks[0].plurk_id;
             string SRC = Base36Converter.ConvertTo(plurkbase36).ToLower();
