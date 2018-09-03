@@ -1,3 +1,6 @@
+# 此版本已廢除 新版本請到 https://github.com/InterfaceGUI/Python-DiscordPlurkBOT
+
+
 # PlurkDiscordBOT
 一個Plurk的Discord同步訊息機器人
 # V1.0版本釋出
